@@ -1,0 +1,182 @@
+@font-face {
+    font-family: Newsreader;
+    src: url(../../Fonte/Newsreader-VariableFont_opsz\,wght.ttf);
+    font-family: Inter;
+    src: url(../../Fonte/Inter-VariableFont_slnt\,wght.ttf);
+}
+#bu2{
+    margin-top: 5px;
+    border: 2px solid rgb(216, 216, 216);
+    /* background: transparent; */
+    border-radius: 10px;
+    color: black;
+    font-size: medium;
+    padding: 8px;
+}
+@media(max-width:400px){
+    textarea{
+    /* width: 450px; */
+    width: 411px;
+    height: 200px;
+    border-radius: 0 0 12px 12px;
+    max-height: 200vh;
+    max-width: 411px;
+    min-width:411px ;
+    
+}
+input{
+    /* width: 450px;
+     */
+     /* padding: 10px 0px 10px 0px; */
+     width: 99%;
+     border-radius: 12px 12px 0px 0px;
+     border: none;
+     font-size: x-large;
+     padding-inline-start: 4px;
+}
+}
+
+textarea{
+    /* width: 450px; */
+    width: 99.5%;
+    height: 200px;
+    border-radius: 0 0 12px 12px;
+    max-height: 200vh;
+    max-width: 95vw;
+    min-width:99.5% ;
+    
+}
+input{
+    /* width: 450px;
+     */
+     /* padding: 10px 0px 10px 0px; */
+     width: 99%;
+     border-radius: 12px 12px 0px 0px;
+     border: none;
+     font-size: x-large;
+     padding-inline-start: 4px;
+}
+*{
+            margin: 0;
+            padding: 0;
+            font-family:  sans-serif;
+}
+        
+        footer{
+            background-color: #292535;
+            height: 150px;
+            color: aliceblue;    
+            min-width: 100%;
+        }
+        .footerL{
+        justify-content: center;
+        display: flex;
+        }
+
+        .footerL img{
+            height: 45px;
+            padding: 10px;
+        }
+        body{
+        background-color: #171621;
+        height: 100vh; 
+        }
+        header {
+            display: flex;
+            /* align-items: center; */
+            justify-content: start;
+            /* padding: 20px; */
+        }
+        
+        .tH{
+
+     font-size: 45px;
+    font-weight: 500;
+    color: #FFF;
+    margin-top: 18px;   
+     font-family: 'Inter', sans-serif;
+}
+
+
+
+        .dropdown {
+            position: relative;
+            width: 119px;
+            margin-right: 20px;
+            padding-right: 14px;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            background-color: #292535;
+            padding: 15px;
+            border-radius: 0 0px 10px 0;
+            font-size: x-large;
+            z-index: 1000;
+            height: 90vh;
+            border-right:3px solid #1f1f2e;
+
+        }
+        .dropdown:hover {
+    /* background-color: #120063; */
+    background-color: #292535;
+    border-radius: 10px 10px 0 0;
+    padding-right: 10px;}
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom:30px ;
+            margin-top: 5px;
+            
+        }
+        .dropdown-menu a:hover {
+            background-color: #171621;
+            border-radius: 6px;
+        }
+        .caixa1{
+            display: flex;
+            /* height: 350px; */
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+            min-height:auto ;
+
+        }
+        .caixa2{
+/* width: 100%; */
+text-align: center;
+        }
+        .a44{
+            height: 80vh;
+            margin-top: 10px;
+            
+        }
+        
+        .a44 ul{
+            display: flex;
+            text-align: center;}
+        .a44 li{
+            list-style: none;
+            margin: 10px;
+            background-color: #FFF;
+            /* text-align: center; */
+            /* color: #FFF; */
+            /* height: 100px; */
+            width: 370px;
+        }
+        ul span{
+            text-align: center;
+            font-size: xx-large;
+            width: 370px;
+        }
+        ul p{
+            font-size: x-large;
+            width: 370px;
+        }

@@ -1,0 +1,136 @@
+@font-face {
+    font-family: Newsreader;
+    src: url(../Sabidos²/Fonte/Newsreader-Italic-VariableFont_opsz\,wght.ttf);
+    font-family: Inter;
+    src: url(../Sabidos²/Fonte/Inter-VariableFont_slnt\,wght.ttf);
+}
+body,html{
+    min-width: fit-content;
+}
+body{
+    background-color: #171621;
+    padding: 0px;
+    margin: 0px;
+    
+}
+/*----------------------------------------*/
+header{
+    min-width: 280px;
+    height: 175px;
+}
+#LogoTopo{
+    width: 80px;
+    height: 70px;
+    margin: 24px 26px;
+}
+#SabidoS²{
+    width: 150px;
+    height: 36px;
+}
+.LogoExtensa{
+    background-color: #171621;
+    display: flex;
+    min-width: fit-content;
+    min-height: fit-content;
+    align-items: center;
+    
+}
+hr {
+	border-width: 0px; 
+	border-top-width: 3px;
+    border-color: #EBEBEB;
+}
+/*----------------------------------------*/
+
+Main{
+    padding: 15px;
+}
+.Titulo{
+    color: #EEE;
+    font-family: Newsreader;
+    font-style: normal;
+    font-size: 30px;
+    font-weight: 400;
+    padding: 0px 50px;
+}
+.Blccolorido{
+    background-image: linear-gradient(90deg, #83161D 0%, #235DB6 100%);
+    width: 300px;
+    height: 55px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    color: #EEE;
+    margin-bottom: 20px;
+}
+.texto{
+    color: #EEE;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 400px;
+}
+.STitulo{
+    color: #8395ED;
+    font-family: Newsreader;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+.R{
+    text-align: right;
+}
+.I-R{
+    display: flex;
+    justify-content: end;
+}
+.Link{
+    color: #FBCB4E;
+    text-decoration: underline;
+    font-family: Inter;
+}
+.Centrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.Iconzin{
+    width: 75px;
+    height: 75px;
+    margin: 50px 0px 15px 
+}
+.ajtxt{
+    display: flex;
+    justify-content: end;
+}
+.NAeft{
+    text-decoration: none;
+}
+/*----------------------------------------*/
+footer{
+    background-color: #292535;
+    height: 100px;
+}
+.LOGREDES{
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+}
+.Redes{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 200px;
+}
+@media(widht: 700px){
+    main{
+        background-color: #FBCB4E;
+    }
+}

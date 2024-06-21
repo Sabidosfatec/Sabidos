@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>Calendário - Sabidos</title>
+    <link rel="stylesheet" href="./Calendario.css">
+</head>
+<body>
+    <header>
+        <div class="dropdown nalinha">
+            <a href="#"><img src="./Component 2.svg" style="margin: 25px 40px 20px 20px;" alt="Menu"></a>
+            <div class="dropdown-menu">
+                <a href="./home Interna.html">Home</a>
+                <a href="#">Perfil</a>
+                <a href="./Calendario .html">Agenda</a>
+                <a href="./Resumo.html">Resumos</a>
+                
+            </div>
+        </div>
+        <h1 class="tH nalinha">Calendário</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="esquerda">
+                <div class="calendario">
+                    <div class="mes">
+                        <img id="prev" src="../Sabidos²/SVG/SetaEsquerda.svg" style="height: 45px; cursor: pointer;">
+                        <div class="h1"><span id="monthName">JULHO</span> <span id="year" style="font-size: smaller; font-weight: 300;">2024</span></div>
+                        <img id="next" src="../Sabidos²/SVG/SetaDireita.svg" style="height: 45px; cursor: pointer;">
+                    </div>
+                    <table>
+                        <thead class="semana">
+                            <tr>
+                                <th style="color: red;">Dom</th>
+                                <th>Seg</th>
+                                <th>Ter</th>
+                                <th>Qua</th>
+                                <th>Qui</th>
+                                <th>Sex</th>
+                                <th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody class="dias" id="calendarBody">
+                            <!-- O conteúdo do calendário será gerado dinamicamente -->
+                        </tbody>
+                    </table>
+                </div>
+                <figure>
+                    <img src="../Sabidos²/SVG/BtnMAIS.svg" alt="Botão Mais" id="addEventButton">
+                </figure>
+                <div class="baixo" id="eventDetails"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footerL">
+            <a href="#"><img src="./Vectorreal icon Inta.svg" alt="Instagram"></a>
+            <a href="#"><img src="./Vectorreal icon X.svg" alt="X"></a>
+            <a href="#"><img src="./Vectorreal github icon.svg" alt="GitHub"></a>
+        </div>
+        <div class="footerL">
+            <p>© 2024 Sabidos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de criação de evento -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Criar Evento</h2>
+            <input type="text" id="eventName" placeholder="Nome do evento">
+            <button id="saveEventButton">Salvar</button>
+        </div>
+    </div>
+
+    <script>
+        const MesNomes = [
+            "JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO",
+            "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"
+        ];
+
+        const atualData = new Date();
+        var atualMes = atualData.getMonth();
+        var atualAno = atualData.getFullYear();
+        const todayDate = atualData.getDate();
+
+        var selectedDayElement = null;
+        const events = {};
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (atualMes === 0) {
+                atualMes = 11;
+                atualAno--;
+            } else {
+                atualMes--;
+            }
+            updateCalendar();
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            if (atualMes === 11) {
+                atualMes = 0;
+                atualAno++;
+            } else {
+                atualMes++;
+            }
+            updateCalendar();
+        });
+
+        function updateCalendar() {
+            const monthName = MesNomes[atualMes];
+            document.getElementById('monthName').textContent = monthName;
+            document.getElementById('year').textContent = atualAno;
+
+            const calendarBody = document.getElementById('calendarBody');
+            calendarBody.innerHTML = '';
+
+            const firstDay = new Date(atualAno, atualMes, 1).getDay();
+            const daysInMonth = new Date(atualAno, atualMes + 1, 0).getDate();
+
+            var date = 1;
+            for (var i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+
+                for (var j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < firstDay) {
+                        const cellText = document.createTextNode('');
+                        cell.appendChild(cellText);
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        const cellText = document.createTextNode(date);
+                        if (date === todayDate && atualMes === atualData.getMonth() && atualAno === atualData.getFullYear()) {
+                            cell.classList.add('hoje');
+                        }
+                        cell.appendChild(cellText);
+                        cell.addEventListener('click', () => selectDate(cell, date));
+                        if (events[`${atualAno}-${atualMes + 1}-${date}`]) {
+                            cell.classList.add('temevento');
+                        }
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+
+        function selectDate(cell, date) {
+            if (selectedDayElement) {
+                selectedDayElement.classList.remove('ativo');
+            }
+            cell.classList.add('ativo');
+            selectedDayElement = cell;
+
+            const weekDays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+            const dayOfWeek = weekDays[new Date(atualAno, atualMes, date).getDay()];
+            const eventDetails = document.getElementById('eventDetails');
+            eventDetails.innerHTML = ``;/*<p>${dayOfWeek}, ${date} de ${MesNomes[atualMes]} de ${atualAno}</p>*/
+
+            if (events[`${atualAno}-${atualMes + 1}-${date}`]) {
+                const eventList = events[`${atualAno}-${atualMes + 1}-${date}`].map(event => `<li>${event}</li>`).join('');
+                eventDetails.innerHTML += `<ul>${eventList}</ul>`;
+            }
+        }
+
+        const modal = document.getElementById('eventModal');
+        const closeModalButton = document.querySelector('.close');
+        const addEventButton = document.getElementById('addEventButton');
+        const saveEventButton = document.getElementById('saveEventButton');
+
+        addEventButton.onclick = function() {
+            if (selectedDayElement) {
+                modal.style.display = "flex";
+            } else {
+                alert("Por favor, selecione um dia primeiro.");
+            }
+        }
+
+        closeModalButton.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        saveEventButton.onclick = function() {
+            const eventName = document.getElementById('eventName').value;
+            if (eventName.trim() !== "") {
+                const date = selectedDayElement.textContent;
+                const eventKey = `${atualAno}-${atualMes + 1}-${date}`;
+                if (!events[eventKey]) {
+                    events[eventKey] = [];
+                }
+                events[eventKey].push(eventName);
+                selectedDayElement.classList.add('temevento');
+                selectDate(selectedDayElement, date);
+                modal.style.display = "none";
+                document.getElementById('eventName').value = "";
+            } else {
+                alert("Por favor, digite um nome para o evento.");
+            }
+        }
+
+        updateCalendar();
+    </script>
+</body>
+</html>

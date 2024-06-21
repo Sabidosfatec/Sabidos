@@ -1,0 +1,117 @@
+@font-face {
+    font-family: Newsreader;
+    src: url(../Sabidos²/Fonte/Newsreader-Italic-VariableFont_opsz\,wght.ttf);
+    font-family: Inter;
+    src: url(../Sabidos²/Fonte/Inter-VariableFont_slnt\,wght.ttf);
+}
+/* Classes Base */
+.Centro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Basico e cores */
+*{
+    font-family: Inter;
+}
+body{
+    background-color: #171621;
+    color: #FFFFFF;
+    margin: 0px;
+}
+.rosa{
+    color: #EA6A69;
+}
+.amarelo{
+    color: #FBCB4E;
+}
+h1{
+    text-align: center;
+}
+/* placeholders e organização*/
+header{
+    display: flex;
+    justify-content: space-between;
+}
+footer{
+    background-color: #292535;
+    height: 100px;
+}
+main{
+    margin: 30px;
+    width: 100vh;
+}
+.profl{
+    width: 30px;
+    height: 30px;
+    background-color: #FFFFFF;
+    
+}
+.Redes{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 200px;
+}
+.Centrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.coment{
+    width: 450px;
+}
+#carrosel{
+    display: flex;
+    height: 320px;
+    width: 460px;
+    border-radius: 40px;
+    overflow-x:auto ;
+    scrollbar-width: thin;
+    scrollbar-color: #171621 #292535
+    }
+.maior{
+    height: 260px;
+    width: 400px;
+}
+.dropdown {
+    position: relative;
+    width: 119px;
+    margin-right: 20px;
+    padding-right: 14px;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #292535;
+    padding: 15px;
+    border-radius: 0 0px 10px 0;
+    font-size: x-large;
+    z-index: 1000;
+    height: 90vh;
+    border-right: 3px solid #1f1f2e;
+}
+.dropdown:hover {
+    background-color: #292535;
+    border-radius: 10px 10px 0 0;
+    /* padding-right: -10px; */
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+.dropdown-menu a:hover {
+    background-color: #171621;
+    border-radius: 6px;
+}
+    /*  */
+

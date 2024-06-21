@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo - Sabidos</title>
+    <link rel="stylesheet" href="./Resumo.css">
+</head>
+<body>
+    <header>
+        <div class="dropdown nalinha">
+            <a href="#"><img src="./Component 2.svg" style=" margin: 25px 40px 20px 20px; " alt="Menu"></a>
+            <div class="dropdown-menu">
+                <a href="./home Interna.html">Home</a>
+                <a href="#">Perfil</a>
+                <a href="./Calendario .html">Agenda</a>
+                <a href="./Resumo.html">Resumos</a>
+                
+            </div>
+        </div>
+        <h1 class="tH nalinha">Resumo</h1>
+    </header>
+    <div class="caixa1">
+        <div class="caixa3">
+        <div class="caixa2">
+         <h2>Escreva no campo abaixo o seu resumo...</h2>
+        <input type="text" id ="tituloinput" placeholder ="Adicione um titulo..." > <br>
+        <textarea name="" id="textoinput" cols="100" rows="10" placeholder="Digite o Texto Aqui.."></textarea><br>
+        <button id="bu2" onclick = "addtarefas()"> Salvar</button>
+        </div></div>
+    </div>
+   <hr>
+   <div class="a44">
+    <ul id="tarefaslista">
+      
+    </ul>
+
+   </div>
+
+   <footer>
+    <div class="footerL">
+        <a href="#"><img src="./Vectorreal icon Inta.svg" alt="Instagram"></a>
+        <a href="#"><img src="./Vectorreal icon X.svg" alt="X"></a>
+        <a href="#"><img src="./Vectorreal github icon.svg" alt="GitHub"></a>
+    </div>
+    <div class="footerL">
+        <p>© 2024 Sabidos. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+
+</body>
+<script>
+    const tarefaslista = document.getElementById("tarefaslista");
+const titulo = document.getElementById("tituloinput");
+const texto = document.getElementById("textoinput");
+
+function addtarefas() {
+    const titulotexto = titulo.value.trim();
+    const textotexto = texto.value.trim();
+    if (titulotexto !== "" && textotexto !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${titulotexto}</span> <br>
+            <p> ${textotexto}</p> 
+
+        `;
+        tarefaslista.appendChild(li);
+        titulo.value = "";
+        texto.value = "";
+    }
+}
+
+</script>
+</html>
